@@ -1,0 +1,93 @@
+<style>
+    .crop-resize{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:space-around;
+        row-gap: 10px;
+    }
+    .crop-resize button{
+        width: calc(50% - 10px);
+    }
+</style>
+{{!-- JS --}}
+<script type="text/javascript" src="/resize.js"></script>
+
+<form action="complete" method="post">
+<div class="container py-5 bg-white">
+    <div class="d-flex justify-content-between">
+        <div style="width: calc(25% - 20px);">
+            <h4>Crop and Rotate Your Picture: Optional</h3>
+            <div class="crop-resize">
+                <button type="button" class="btn btn-info crop" value="-90"><i class="fas fa-undo" aria-hidden="true"></i><br>ROTATE</button>
+                <button type="button" class="btn btn-info crop" value="90"><i class="fas fa-redo" aria-hidden="true"></i><br>ROTATE</button>
+                <button type="button" class="btn btn-info crop" value="true"><i class="fas fa-arrows-alt-h" aria-hidden="true"></i> FLOP</button>
+                <button type="button" class="btn btn-info crop" value="true"><i class="fas fa-arrows-alt-v" aria-hidden="true"></i> FLIP</button>
+            </div>
+        </div>
+        <div style="width: calc(75% - 20px);">
+            <p class="note alert alert-primary" style="color:#000!important;"><strong>Note:</strong> The preview below
+                is the actual size of your image.</p>
+            <img id="image-preview" src="images/{{nameImageUpload}}">
+        </div>
+    </div>
+    <hr>
+    <div>
+        <h3>Resize Your Picture:</h3>
+        <div class="d-flex">
+            <div class="col-md-8 d-flex">
+                <div>
+                    <label class="text-center" for="width">Width</label>
+                    <input type="text" class="form-control resize" name="width" id="width" value="" required>
+                </div>
+                <div>
+                    <label class="text-center" for="height">Height</label>
+                    <input type="text" class="form-control resize" name="height" id="height" value="" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <table border="0" cellpadding="3" cellspacing="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <td width="80">
+                                <font color="gray">Your Image</font>
+                            </td>
+                            <td width="40" align="center">Width</td>
+                            <td width="10"></td>
+                            <td width="40" align="center">Height</td>
+                        </tr>
+                        <tr>
+                            <td><b>Original</b> (Pixels)</td>
+                            <td id="width_original" align="center">{{dimensions.width}}</td>
+                            <td align="center">x</td>
+                            <td id="height_original" align="center">{{dimensions.height}}</td>
+                        </tr>
+                        <tr id="after_crop">
+                            <td><b>Cropped</b></td>
+                            <td id="new_width_cropped" align="center">{{dimensions.width}}</td>
+                            <td align="center">x</td>
+                            <td id="new_height_cropped" align="center">{{dimensions.height}}</td>
+                        </tr>
+                        <tr>
+                            <td style="background: #f6ffef;border:1px solid #5a9a26; border-right: none;"><b>Estimated
+                                    Final</b></td>
+                            <td id="new_width_final"
+                                style="background: #f6ffef;border:1px solid #5a9a26; border-left: none; border-right: none;"
+                                align="center">0</td>
+                            <td style="background: #f6ffef;border:1px solid #5a9a26; border-left: none; border-right: none;"
+                                align="center">x</td>
+                            <td id="new_height_final"
+                                style="background: #f6ffef;border:1px solid #5a9a26; border-left: none;" align="center">
+                                0
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div><br>
+    <input type="hidden" name="width_present" value="{{dimensions.width}}">
+    <input type="hidden" name="height_present" value="{{dimensions.height}}">
+    <div>
+        <button type="submit" class="btn btn-info w-100" name="submit" value="{{nameImageUpload}}"> Complete</button>
+    </div>
+</div>
