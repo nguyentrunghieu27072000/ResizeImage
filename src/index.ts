@@ -12,10 +12,9 @@ import { routerUpload } from './routes/upload_image';
 import { routerResize } from './routes/resize_image';
 import { routerResult } from './routes/result_image'
 
-import { engine } from 'express-handlebars';
+import {engine} from 'express-handlebars';
 import session from 'express-session';
-import bodyParser from 'body-parser';
-import console from 'console';
+import { json } from 'body-parser';
 
 //khoi dong session
 declare module 'express-session' {
@@ -26,7 +25,7 @@ declare module 'express-session' {
 
 // rest of the code remains same
 const app = express();
-const PORT = 3000;
+const PORT = 80;
 
 //khoi dong handlevars middleware
 app.engine('handlebars', engine());
@@ -40,13 +39,14 @@ app.use(session({
   cookie: { maxAge: 6000000 }
 }));
 
+var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
 
 app.use(express.static('public'));
-app.use('/scripts', express.static('node_modules/bootstrap/dist'));
+
 app.use(routerUpload)
 app.use(routerResize)
 app.use(routerResult)
