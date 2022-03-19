@@ -14,5 +14,4 @@ router.route('/download').get((req, res) => {
     res.download(file); // Set disposition and send it.
 })
 
-export {router}
 export {router as routerResult}
