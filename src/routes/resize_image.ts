@@ -89,5 +89,4 @@ router.post('/crop', (req, res) => {
     }
 })
 
-export { router }
 export { router as routerResize }

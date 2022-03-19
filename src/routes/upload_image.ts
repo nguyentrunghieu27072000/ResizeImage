@@ -29,5 +29,4 @@ router.post('/upload', upload.single('fileimage'), (req, res, next) => {
   res.redirect(`/resize`)
 })
 
-export { router }
 export { router as routerUpload }
