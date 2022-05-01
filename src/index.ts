@@ -26,7 +26,7 @@ declare module 'express-session' {
 
 // rest of the code remains same
 const app = express();
-const PORT = 3000;
+const PORT = process.env.port || 3000;
 
 //khoi dong handlevars middleware
 app.engine('handlebars', engine());
