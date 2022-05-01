@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "watch": "nodemon src/index.ts",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "start": "nodemon src/index.ts"
   },
   "author": "",
   "license": "ISC",
