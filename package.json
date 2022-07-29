@@ -5,7 +5,7 @@
   "scripts": {
     "watch": "nodemon src/index.ts",
     "build": "tsc -p .",
-    "start": "npm install nodemon src/index.ts"
+    "start": "nodemon src/index.ts"
   },
   "author": "",
   "license": "ISC",
