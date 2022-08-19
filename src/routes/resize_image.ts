@@ -1,9 +1,8 @@
-import { Router } from "express";
-// resize image
+import {Router} from "express";
 import sharp from 'sharp';
 sharp.cache(false)
 
-const path_image = ENVIRONMENT
+const path_image = process.env.ENVIRONMENT;
 const router = Router()
 
 router.get('/resize', (req, res) => {

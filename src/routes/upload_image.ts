@@ -1,8 +1,8 @@
 import { Router } from "express";
 import * as fs from 'fs';
 
-const path_image = ENVIRONMENT
-const router = Router()
+const path_image = process.env.ENVIRONMENT;
+const router = Router();
 
 //khoi dong  upload file
 import multer from "multer"

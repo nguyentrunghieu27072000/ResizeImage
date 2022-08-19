@@ -1,11 +1,12 @@
 version: "3"
-services: 
+services:
   resize-image:
     container_name: resize-images
     build: .
-    ports: 
-      - "8080:3000"
+    ports:
+      - "8080:3001"
     restart: always
     image: resize-images
     volumes:
       - ./src:/usr/src/app/src
+      - ./views:/usr/src/app/views

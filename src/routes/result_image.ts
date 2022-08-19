@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-const path_image = ENVIRONMENT
+const path_image = process.env.ENVIRONMENT;
 const router = Router()
 
 router.get('/results', (req, res) => {
