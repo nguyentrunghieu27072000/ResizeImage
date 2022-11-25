@@ -1,3 +1,1 @@
-# ResizeImage
-
-![image](https://github.com/argyleink/argyleink/raw/master/argyleink-sm2.gif?raw=true)
+![gif from nerdy.dev](https://github.com/argyleink/argyleink/blob/master/argyleink-sm2.gif?raw=true)
